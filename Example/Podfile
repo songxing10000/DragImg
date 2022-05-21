@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DragImg_Example' do
+  pod 'DragImg', :path => '../'
+
+  target 'DragImg_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
