@@ -58,8 +58,12 @@ public class DragImgVC: NSViewController {
             
             // 一定要clearContents，再设置字符串，才有效果
             NSPasteboard.general.clearContents()
-            NSPasteboard.general.setString(workPastStr, forType: .string)
-            output(NSPasteboard.general.string(forType: .string))
+            let mdStr = workPastStr.replacingOccurrences(of: "\\(fileName)", with: destFileURL.lastPathComponent)
+            NSPasteboard.general.setString(mdStr, forType: .string)
+            if let outStr = NSPasteboard.general.string(forType: .string) {
+                output("剪贴板内容：\(outStr)")
+            }
+            
         } catch {
             output(error.localizedDescription)
              
