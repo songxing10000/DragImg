@@ -1,0 +1,28 @@
+PODS:
+  - DragImg (0.1.0):
+    - xUtils
+    - xViews
+  - xUtils (0.1.0)
+  - xViews (0.1.0)
+
+DEPENDENCIES:
+  - DragImg (from `../`)
+  - xUtils (from `../../xUtils/`)
+  - xViews (from `../../xViews/`)
+
+EXTERNAL SOURCES:
+  DragImg:
+    :path: "../"
+  xUtils:
+    :path: "../../xUtils/"
+  xViews:
+    :path: "../../xViews/"
+
+SPEC CHECKSUMS:
+  DragImg: 57f780c711e03befc0a3d97029f2a7a198f81c8c
+  xUtils: b2310993d9d5298b027989acad4951aeeb2d34ca
+  xViews: 70824eaf5b63c7ac2148f7497d5779c3eefcce92
+
+PODFILE CHECKSUM: 3608ecfdb8adee15d36c8eb2b7428888ad1f5b9d
+
+COCOAPODS: 1.11.3

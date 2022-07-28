@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="DragImgVC" customModule="DragImg" customModuleProvider="target">
+            <connections>
+                <outlet property="m_textView" destination="SoI-hk-4we" id="bpR-x8-gfa"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="491" height="354"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <splitView arrangesAllSubviews="NO" dividerStyle="paneSplitter" translatesAutoresizingMaskIntoConstraints="NO" id="T7K-7d-PSZ">
+                    <rect key="frame" x="0.0" y="0.0" width="491" height="354"/>
+                    <subviews>
+                        <customView id="AMu-Mk-wal">
+                            <rect key="frame" x="0.0" y="0.0" width="491" height="188"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="t5M-UU-Df6" customClass="FileDragView" customModule="xViews">
+                                    <rect key="frame" x="0.0" y="0.0" width="491" height="188"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-2" id="Zy1-De-gC0"/>
+                                    </connections>
+                                </customView>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MYU-Wm-fEp">
+                                    <rect key="frame" x="210" y="86" width="71" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="拖拽入图片" id="3lA-A1-c5a">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="t5M-UU-Df6" secondAttribute="trailing" id="7TX-mR-cqX"/>
+                                <constraint firstItem="t5M-UU-Df6" firstAttribute="leading" secondItem="AMu-Mk-wal" secondAttribute="leading" id="BzF-Xz-o2V"/>
+                                <constraint firstItem="t5M-UU-Df6" firstAttribute="leading" secondItem="AMu-Mk-wal" secondAttribute="leading" id="CjY-Wa-Uvf"/>
+                                <constraint firstItem="t5M-UU-Df6" firstAttribute="top" secondItem="AMu-Mk-wal" secondAttribute="top" id="KCO-Gd-j1j"/>
+                                <constraint firstAttribute="bottom" secondItem="t5M-UU-Df6" secondAttribute="bottom" id="YcZ-Dm-GO5"/>
+                                <constraint firstItem="t5M-UU-Df6" firstAttribute="top" secondItem="AMu-Mk-wal" secondAttribute="top" id="a0y-5z-BM7"/>
+                                <constraint firstItem="MYU-Wm-fEp" firstAttribute="centerY" secondItem="AMu-Mk-wal" secondAttribute="centerY" id="mg0-vn-0nF"/>
+                                <constraint firstAttribute="trailing" secondItem="t5M-UU-Df6" secondAttribute="trailing" id="tFE-ZP-Z9j"/>
+                                <constraint firstAttribute="bottom" secondItem="t5M-UU-Df6" secondAttribute="bottom" id="uUO-pS-R97"/>
+                                <constraint firstItem="MYU-Wm-fEp" firstAttribute="centerX" secondItem="AMu-Mk-wal" secondAttribute="centerX" id="x5e-fy-Q4B"/>
+                            </constraints>
+                        </customView>
+                        <customView id="kJg-Mb-CJU">
+                            <rect key="frame" x="0.0" y="198" width="491" height="156"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJv-Q8-0uA">
+                                    <rect key="frame" x="0.0" y="0.0" width="491" height="156"/>
+                                    <clipView key="contentView" drawsBackground="NO" id="sOQ-GW-OT1">
+                                        <rect key="frame" x="0.0" y="0.0" width="476" height="156"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" smartInsertDelete="YES" id="SoI-hk-4we">
+                                                <rect key="frame" x="0.0" y="0.0" width="476" height="156"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <size key="minSize" width="476" height="156"/>
+                                                <size key="maxSize" width="500" height="10000000"/>
+                                                <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </clipView>
+                                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="DSp-k9-J28">
+                                        <rect key="frame" x="-100" y="-100" width="225" height="15"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </scroller>
+                                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="vef-5W-7zX">
+                                        <rect key="frame" x="476" y="0.0" width="15" height="156"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </scroller>
+                                </scrollView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="lJv-Q8-0uA" secondAttribute="bottom" id="02o-Kr-r5E"/>
+                                <constraint firstItem="lJv-Q8-0uA" firstAttribute="leading" secondItem="kJg-Mb-CJU" secondAttribute="leading" id="2hs-a5-g0Y"/>
+                                <constraint firstAttribute="trailing" secondItem="lJv-Q8-0uA" secondAttribute="trailing" id="Yau-yz-0AD"/>
+                                <constraint firstItem="lJv-Q8-0uA" firstAttribute="top" secondItem="kJg-Mb-CJU" secondAttribute="top" id="ZtW-7v-G68"/>
+                                <constraint firstAttribute="bottom" secondItem="lJv-Q8-0uA" secondAttribute="bottom" id="a3c-4U-lU6"/>
+                                <constraint firstItem="lJv-Q8-0uA" firstAttribute="leading" secondItem="kJg-Mb-CJU" secondAttribute="leading" id="eyI-DQ-VUv"/>
+                                <constraint firstAttribute="trailing" secondItem="lJv-Q8-0uA" secondAttribute="trailing" id="yWR-gb-pCh"/>
+                                <constraint firstItem="lJv-Q8-0uA" firstAttribute="top" secondItem="kJg-Mb-CJU" secondAttribute="top" id="zse-n3-iin"/>
+                            </constraints>
+                        </customView>
+                    </subviews>
+                    <holdingPriorities>
+                        <real value="94"/>
+                        <real value="118"/>
+                    </holdingPriorities>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="0eg-hY-rLb"/>
+                    </connections>
+                </splitView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="T7K-7d-PSZ" secondAttribute="trailing" id="4Z6-Zo-4jh"/>
+                <constraint firstItem="T7K-7d-PSZ" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Kyq-hx-Q2t"/>
+                <constraint firstAttribute="bottom" secondItem="T7K-7d-PSZ" secondAttribute="bottom" id="NRL-em-8JV"/>
+                <constraint firstItem="T7K-7d-PSZ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="wYo-xD-G9z"/>
+            </constraints>
+            <point key="canvasLocation" x="146.5" y="195"/>
+        </customView>
+    </objects>
+</document>

@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -21,7 +23,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="0lt-Xy-Z2j" kind="show" id="wnU-IA-MFl"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -618,7 +624,7 @@
                                         <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
-                                                <action selector="toggleSourceList:" target="Ady-hI-5gd" id="iwa-gc-5KM"/>
+                                                <action selector="toggleSidebar:" target="Ady-hI-5gd" id="iwa-gc-5KM"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
@@ -673,7 +679,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="DragImg_Example" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -683,12 +689,12 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-			<connections>
+                        <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
@@ -703,15 +709,148 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="DragImg_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="485" height="286"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TxS-CE-aH2">
+                                <rect key="frame" x="19" y="29" width="447" height="32"/>
+                                <buttonCell key="cell" type="push" title="开始工作" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CLj-fb-9hf">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clickBtn:" target="XfG-lQ-9wD" id="A2K-7z-xd4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="TxS-CE-aH2" secondAttribute="trailing" constant="26" id="FC3-xS-efN"/>
+                            <constraint firstItem="TxS-CE-aH2" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="26" id="efF-pu-xEU"/>
+                            <constraint firstAttribute="bottom" secondItem="TxS-CE-aH2" secondAttribute="bottom" constant="36" id="iPr-5a-ata"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="77.5" y="663"/>
+        </scene>
+        <!--设置-->
+        <scene sceneID="EXn-3q-jgN">
+            <objects>
+                <viewController title="设置" id="0lt-Xy-Z2j" customClass="PreferenceVC" customModule="DragImg_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="gEh-nm-eJG">
+                        <rect key="frame" x="0.0" y="0.0" width="485" height="239"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xDJ-IX-kLB">
+                                <rect key="frame" x="19" y="29" width="453" height="32"/>
+                                <buttonCell key="cell" type="push" title="保存" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JeL-Ya-NV3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clickSaveBtn:" target="0lt-Xy-Z2j" id="Dxl-G9-5um"/>
+                                </connections>
+                            </button>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NfN-gT-dtT">
+                                <rect key="frame" x="20" y="110" width="450" height="109"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WFq-Sh-YwX">
+                                        <rect key="frame" x="-2" y="93" width="160" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="1.把图片拷贝到哪个文件夹" id="5Rh-rg-dwN">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <stackView distribution="equalSpacing" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iw6-hl-Se0">
+                                        <rect key="frame" x="0.0" y="61" width="450" height="20"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PML-pB-lfF">
+                                                <rect key="frame" x="-2" y="4" width="286" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="/Users/dfpo/Downloads/daily-summary/assets/" id="qJQ-wc-gKw">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DFr-SG-Epj">
+                                                <rect key="frame" x="369" y="-7" width="88" height="32"/>
+                                                <buttonCell key="cell" type="push" title="重新选择" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HKS-g1-UaW">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="clickChooseBtn:" target="0lt-Xy-Z2j" id="eUy-vh-y8K"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="450" id="DMh-PY-qNO"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wM7-yi-vR0">
+                                        <rect key="frame" x="-2" y="33" width="144" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="2.粘贴板生成的md格式" id="K9q-gN-Mgz">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CC9-IA-XDg">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="21"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="![](./assets/\(fileName))" drawsBackground="YES" id="KvI-Ga-s5i">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="109" id="eU4-gf-hl9"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="NfN-gT-dtT" firstAttribute="top" secondItem="gEh-nm-eJG" secondAttribute="top" constant="20" symbolic="YES" id="0Qn-Eo-AhM"/>
+                            <constraint firstItem="NfN-gT-dtT" firstAttribute="leading" secondItem="gEh-nm-eJG" secondAttribute="leading" constant="20" symbolic="YES" id="FY1-qi-5KO"/>
+                            <constraint firstAttribute="bottom" secondItem="xDJ-IX-kLB" secondAttribute="bottom" constant="36" id="HaZ-8l-HEH"/>
+                            <constraint firstItem="xDJ-IX-kLB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NfN-gT-dtT" secondAttribute="bottom" constant="54" id="Jna-7i-7Hd"/>
+                            <constraint firstItem="xDJ-IX-kLB" firstAttribute="leading" secondItem="gEh-nm-eJG" secondAttribute="leading" constant="26" id="Jxb-m3-pRt"/>
+                            <constraint firstAttribute="trailing" secondItem="xDJ-IX-kLB" secondAttribute="trailing" constant="20" symbolic="YES" id="KWz-wC-sfy"/>
+                            <constraint firstAttribute="trailing" secondItem="NfN-gT-dtT" secondAttribute="trailing" constant="15" id="MEL-pF-0M5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="m_desFolderPathTF" destination="PML-pB-lfF" id="mWe-e6-Q5v"/>
+                        <outlet property="m_pastStrTF" destination="CC9-IA-XDg" id="FUF-Zg-Knx"/>
+                    </connections>
+                </viewController>
+                <customObject id="NYe-Hp-7jf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="598.5" y="122.5"/>
         </scene>
     </scenes>
 </document>

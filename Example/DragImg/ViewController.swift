@@ -7,21 +7,19 @@
 //
 
 import Cocoa
-
+import DragImg
 class ViewController: NSViewController {
+    ///  把图片拷贝到哪个文件夹
+    @IBOutlet weak var m_desFolderPathTF: NSTextField!
+    
+    /// 粘贴板生成的md格式
+    @IBOutlet weak var m_pastStrTF: NSTextField!
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-    // Do any additional setup after loading the view.
-  }
-
-  override var representedObject: Any? {
-    didSet {
-    // Update the view, if already loaded.
+    @IBAction func clickBtn(_ sender: Any) {
+      
+        presentViewControllerAsModalWindow(DragImgVC.vc())
     }
-  }
-
-
+    
 }
+
 

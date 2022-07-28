@@ -29,10 +29,13 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform = :osx
-  s.osx.deployment_target = "10.10"
+  s.osx.deployment_target = "10.15"
+  s.swift_versions = ['5.0']
 
   s.source_files = 'DragImg/Classes/**/*'
-
+  s.resource_bundles = {
+      'DragImg' => ['DragImg/Assets/**/*.{xcassets,json}', 'DragImg/Assets/*.{xib}']
+  }
   # s.resource_bundles = {
   #   'DragImg' => ['DragImg/Assets/*.png']
   # }
@@ -40,4 +43,6 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'Cocoa'
   # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'xUtils'
+  s.dependency 'xViews'
 end
